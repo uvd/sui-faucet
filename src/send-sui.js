@@ -10,7 +10,7 @@ const client = new sui_client.SuiClient({url: rpcUrl});
 
 const pool = [];
 
-let address_set = new Set()
+const address_set = new Set()
 
 module.exports = {
     send
@@ -51,5 +51,5 @@ function sendSui() {
 setInterval(sendSui, 1000)
 
 setInterval(()=>{
-    address_set = new Set();
+    address_set.clear();
 },1000*60)
