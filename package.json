@@ -1,0 +1,19 @@
+{
+  "name": "sui-faucet",
+  "version": "1.0.0",
+  "description": "sui faucet",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "module": "ESNext",
+  "repository": "git@github.com:uvd/sui-faucet.git",
+  "author": "uvd <wangtxxl@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "@mysten/sui.js": "^0.43.3",
+    "koa": "^2.14.2"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
