@@ -10,12 +10,17 @@ const client = new sui_client.SuiClient({url: rpcUrl});
 
 const pool = [];
 
+let address_set = new Set()
+
 module.exports = {
     send
 }
 
 async function send(address, amount) {
-    pool.push({to: address, amount})
+    if (!address_set.has(address)){
+        pool.push({to: address, amount})
+        address_set.add(address);
+    }
 }
 
 function sendSui() {
@@ -44,3 +49,7 @@ function sendSui() {
 }
 
 setInterval(sendSui, 1000)
+
+setInterval(()=>{
+    address_set = new Set();
+},1000*60)
