@@ -37,7 +37,7 @@ async function sendSui() {
 
     try {
         const txb = new transactions.TransactionBlock();
-        const coins = txb.splitCoins(txb.gas, transfers.map((transfer) => transfer.amount * 1000000000),);
+        const coins = txb.splitCoins(txb.gas, transfers.filter((transfer)=> !isNaN(transfer.amount)).map((transfer) => transfer.amount * 1000000000),);
         // next, create a transfer transaction for each coin
         transfers.forEach((transfer, index) => {
             txb.transferObjects([coins[index]], transfer.to);
