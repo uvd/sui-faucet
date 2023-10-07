@@ -23,7 +23,7 @@ async function send(address, amount) {
     }
 }
 
-function sendSui() {
+async function sendSui() {
     if (pool.length == 0) {
         return
     }
@@ -42,7 +42,7 @@ function sendSui() {
         transfers.forEach((transfer, index) => {
             txb.transferObjects([coins[index]], transfer.to);
         });
-        client.signAndExecuteTransactionBlock({signer: keypair, transactionBlock: txb});
+        await client.signAndExecuteTransactionBlock({signer: keypair, transactionBlock: txb});
     } catch (e) {
         console.error(e)
     }
