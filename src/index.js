@@ -11,7 +11,7 @@ router.get('/:address', ctx => {
 })
 
 router.get('/:address/:amount', ctx => {
-    let amount = ctx.params.amount ? 1 :  parseInt(ctx.params.amount);
+    let amount = parseInt(ctx.params.amount);
     if (amount > 100) {
         amount = 100;
     }
