@@ -12,8 +12,8 @@ router.get('/:address', ctx => {
 
 router.get('/:address/:amount', ctx => {
     let amount = parseInt(ctx.params.amount);
-    if (amount > 100) {
-        amount = 100;
+    if (amount > 10) {
+        amount = 10;
     }
     send_sui.send(ctx.params.address, amount)
     ctx.body = `send  ${ctx.params.address}  ${amount} SUI`
